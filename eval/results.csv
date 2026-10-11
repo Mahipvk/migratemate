@@ -1,0 +1,6 @@
+project,mode,model,baseline,final,final_tests,ai_iterations,ai_files_changed,guard_blocks,seconds,stop_reason
+legacy-bank-app,full,qwen2.5-coder:7b,PASS,FAIL,"7 run, 1 failed, 0 errors",2,0,0,162,"model proposed no usable changes twice in a row"
+legacy-bank-app,full,qwen2.5-coder:7b,PASS,PASS,"7 run, 0 failed, 0 errors",2,2,0,73,"all tests pass"
+legacy-bank-app,recipes,-,PASS,FAIL,"7 run, 1 failed, 0 errors",0,0,0,20,"recipes-only mode (no AI)"
+legacy-bank-app,ai,qwen2.5-coder:7b,PASS,FAIL,"-",6,9,0,251,"reached max iterations (6)"
+legacy-bank-app,full,qwen2.5-coder:7b,PASS,PASS,"7 run, 0 failed, 0 errors",2,2,0,80,"all tests pass"

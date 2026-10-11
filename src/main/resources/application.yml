@@ -1,0 +1,34 @@
+spring:
+  main:
+    web-application-type: none
+    banner-mode: off
+  http:
+    client:
+      read-timeout: 10m
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      init:
+        pull-model-strategy: when_missing   # downloads the model the first time
+        timeout: 20m
+      chat:
+        options:
+          model: qwen2.5-coder:7b           # good coding model for a 16 GB Mac
+          temperature: 0.1
+          num-ctx: 16384
+
+migratemate:
+  # OpenRewrite recipes used in "full" and "recipes" modes
+  recipe-coordinates: org.openrewrite.recipe:rewrite-spring:RELEASE
+  recipes: org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_4,org.openrewrite.java.migrate.UpgradeToJava21
+  # used by "ai" mode, which only bumps versions and lets the AI fix everything else
+  target-spring-boot-version: 3.4.5
+  target-java-version: 21
+  max-iterations: 6
+  max-files-per-iteration: 5
+  build-timeout-minutes: 15
+  work-dir: work
+
+logging:
+  level:
+    root: warn

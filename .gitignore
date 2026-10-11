@@ -1,0 +1,6 @@
+target/
+work/
+reports/
+.idea/
+*.iml
+.DS_Store
